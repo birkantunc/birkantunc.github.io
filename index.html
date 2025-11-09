@@ -5,23 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prayer Clock</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; background:#f4f4f4; }
-        .container { max-width: 340px; margin: 20px auto; padding: 12px; background:#fff; border:1px solid #ddd; }
-        h1 { font-size: 18px; margin: 0 0 10px; }
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            background:#f4f4f4; 
+        }
 
-        .dial { position: relative; width:220px; height:220px; margin: 12px auto; }
-        .pie { position:absolute; inset:0; width: 220px; height: 220px; border-radius: 50%; margin: 0; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
-        .inner { position:absolute; top:50%; left:50%; width:180px; height:180px; background:#fff; border-radius:50%; box-shadow: 0 2px 8px rgba(0,0,0,.1); transform: translate(-50%, -50%); z-index:1; }
-        .hand { position:absolute; left:50%; bottom:50%; width:3px; background:#111; border-radius:2px; transform-origin: bottom center; z-index:2; }
-        .cap { position:absolute; width:5px; height:5px; background:#fff; border:2px solid #000; border-radius:50%; top:50%; left:50%; transform:translate(-50%,-50%); z-index:3;}
+        .container {
+            max-width: 340px;
+            margin: 20px auto;
+            padding: 12px;
+            background:#fff;
+            border:1px solid #ddd;
+        }
 
-        .timewrap { position:absolute; left:50%; top:50%; transform: translateX(-50%); z-index:3; text-align:center; line-height:1.15; }
-        .now { font-size: 24px; font-weight: 300; }
-        .rem { margin-top: 3px; font-size: 24px; font-weight: 600; }
+        h1 {
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
 
-        .note { color:#666; font-size: 13px; text-align:center; }
-        .test { color:#0a7; text-align:center; font-size: 13px; }
-        .test.err { color:#c33; }
+        .dial {
+            position: relative;
+            width:270px;
+            height:270px;
+            margin: 12px auto;
+        }
+
+        .pie {
+            position:absolute;
+            inset:0;
+            width: 270px;
+            height: 270px;
+            border-radius: 50%;
+            margin: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,.1);
+        }
+
+        .inner {
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:230px;
+            height:230px;
+            background:#fff;
+            border-radius:50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,.1);
+            transform: translate(-50%, -50%);
+            z-index:1;
+        }
+
+        .hand {
+            position:absolute;
+            left:50%;
+            bottom:50%;
+            width:3px;
+            background:#111;
+            border-radius:2px;
+            transform-origin: bottom center;
+            z-index:2;
+        }
+
+        .cap {
+            position:absolute;
+            width:5px;
+            height:5px;
+            background:#fff;
+            border:2px solid #000;
+            border-radius:50%;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            z-index:3;
+        }
+
+        .list {
+            position:absolute;
+            left:33%;
+            top:22%;
+            transform: translateX(-50%);
+            font-family: "Courier New", Courier, monospace;
+            font-size:12px;
+            font-weight:600;
+            z-index:1;
+        }
+        .l-fajr { color:rgb(69, 142, 232); }
+        .l-dhuhr { color:rgb(36, 182, 4); }
+        .l-asr { color:rgb(242, 171, 4); }
+        .l-maghrib { color: #F84E3D; }
+        .l-isha { color: #4E4242; }
+
+        .timewrap {
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform: translateX(-50%);
+            z-index:1;
+            text-align:center;
+            line-height:1.15;
+        }
+
+        .now {
+            font-size: 24px;
+            font-weight: 300;
+        }
+
+        .rem {
+            margin-top: 3px;
+            font-size: 24px;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -31,6 +123,13 @@
         <div id="hand" class="hand"></div>
         <div id="cap" class="cap"></div>
         <div id="inner" class="inner"></div>
+        <div id="list" class="list">
+            <div><span class="l-fajr">F</span> <span id="l-fajr" class="l-fajr">0:00</span></div>
+            <div><span class="l-dhuhr">D</span> <span id="l-dhuhr" class="l-dhuhr">0:00</span></div>
+            <div><span class="l-asr">A</span> <span id="l-asr" class="l-asr">0:00</span></div>
+            <div><span class="l-maghrib">M</span> <span id="l-maghrib" class="l-maghrib">0:00</span></div>
+            <div><span class="l-isha">I</span> <span id="l-isha" class="l-isha">0:00</span></div>
+        </div>
         <div id="timewrap" class="timewrap">
             <div id="nowTime" class="now"></div>
             <div id="remTime" class="rem"></div>
@@ -40,6 +139,7 @@
 
     <script>
         var DAY_SEC = 24 * 60 * 60;
+        var _TIMES = null;
 
         // Placeholder: hardcoded to Philadelphia (times in seconds since 00:00)
         function getPrayerTimes() {
@@ -61,7 +161,7 @@
                 })
                 .then(json => {
                     const t = json && json.data && json.data.timings ? json.data.timings : {};
-                    return {
+                    _TIMES = {
                         fajr:    toSec(t.Fajr),
                         sunrise: toSec(t.Sunrise),
                         dhuhr:   toSec(t.Dhuhr),
@@ -69,6 +169,7 @@
                         maghrib: toSec(t.Maghrib),
                         isha:    toSec(t.Isha)
                     };
+                    return _TIMES;
                 });
         }
 
@@ -153,6 +254,14 @@
         }
 
         function updateTexts(times){
+            // list times
+            document.getElementById('l-fajr').textContent = fmtNow24h(times.fajr);
+            document.getElementById('l-dhuhr').textContent = fmtNow24h(times.dhuhr);
+            document.getElementById('l-asr').textContent = fmtNow24h(times.asr);
+            document.getElementById('l-maghrib').textContent = fmtNow24h(times.maghrib);
+            document.getElementById('l-isha').textContent = fmtNow24h(times.isha);
+            
+            // now and remaining
             var nowSec = nowSecSinceMidnight();
             var angle = relDegFromFajr(times, nowSec);
             var nowEl = document.getElementById('nowTime');
@@ -177,21 +286,20 @@
 
             // Position: if in upper half (angle < 90 || angle > 180), place texts in lower half
             if (angle < 90 || angle > 270) {
-                wrap.style.top = '55%';
+                wrap.style.top = '60%';
             } else {
-                wrap.style.top = '18%';
+                wrap.style.top = '17%';
             }
         }
 
-        function render() {
-            getPrayerTimes().then(function(times){
-                var pie = document.getElementById('pie');
-                pie.style.background = buildClockGradient(times);
-                updateHand(times);
-                updateTexts(times);
-                if (handTimer) { clearInterval(handTimer); }
-                handTimer = setInterval(function(){ updateHand(times); updateTexts(times); }, 60*1000);
-            });
+        async function render() {
+            const times = _TIMES || await getPrayerTimes();  // waits only if not cached
+            var pie = document.getElementById('pie');
+            pie.style.background = buildClockGradient(times);
+            updateHand(times);
+            updateTexts(times);
+            if (handTimer) { clearInterval(handTimer); }
+            handTimer = setInterval(function(){ updateHand(times); updateTexts(times); }, 60*1000);
         }
 
         render();
