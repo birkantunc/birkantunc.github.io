@@ -163,7 +163,7 @@
             var rem = nextPrayerRemaining(times, nowSec);
             remEl.textContent = fmtHM(rem);
             // if less than 30 minutes remaining, highlight
-            if (rem <= 30*60) {
+            if ((rem <= 30*60) && (nowSec >= times.dhuhr) && (nowSec <= times.isha)) {
                 remEl.style.color = '#FFFFFF';
                 remEl.style.backgroundColor = '#CD2929';
                 remEl.style.borderRadius = '5px';
