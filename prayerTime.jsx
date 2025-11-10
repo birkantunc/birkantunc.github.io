@@ -227,7 +227,25 @@ function updateTexts(times){
     var remEl = document.getElementById('remTime');
     var wrap = document.getElementById('timewrap');
 
+    // current time
     nowEl.textContent = fmtNow24h(nowSec);
+    if ((nowSec >= times.fajr) && (nowSec <= times.dhuhr)) {
+        nowEl.style.color = '#457EE8';  // Fajr
+    }
+    else if ((nowSec > times.dhuhr) && (nowSec <= times.asr)) {
+        nowEl.style.color = '#24B604';  // Dhuhr
+    }
+    else if ((nowSec > times.asr) && (nowSec <= times.maghrib)) {
+        nowEl.style.color = '#F2AB04';  // Asr
+    }
+    else if ((nowSec > times.maghrib) && (nowSec <= times.isha)) {
+        nowEl.style.color = '#F84E3D';  // Maghrib
+    }
+    else {
+        nowEl.style.color = '#4E4242';  // Isha
+    }
+
+    // remaining time
     var rem = nextPrayerRemaining(times, nowSec);
     remEl.textContent = fmtHM(rem);
     // if less than 30 minutes remaining, highlight
