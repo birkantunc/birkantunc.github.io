@@ -126,13 +126,32 @@ function updateTexts(times){
     }
 
     // Position: if in upper half (angle < 90 || angle > 270), place texts in lower half
-    if (angle < 90 || angle > 270) {
-        wrap.style.top = '60%';
+    console.log('angle:', angle);
+    if (angle > 0 && angle < 90) {
         timeList.style.top = '22%';
-    } else {
-        wrap.style.top = '17%';
+        timeList.style.transform = 'translateX(-50%)';
+        wrap.style.top = '60%';
+    } else if (angle >= 90 && angle <= 180) {
         timeList.style.top = '52%';
+        timeList.style.transform = 'translateX(-50%)';
+        wrap.style.top = '17%';
+    } else if (angle > 180 && angle < 270) {
+        timeList.style.top = '52%';
+        timeList.style.transform = 'translateX(+70%)';
+        wrap.style.top = '17%';
+    } else { // angle >= 270 && angle < 360
+        timeList.style.top = '22%';
+        timeList.style.transform = 'translateX(+70%)';
+        wrap.style.top = '60%';
     }
+
+    // if (angle < 90 || angle > 270) {
+    //     wrap.style.top = '60%';
+    //     timeList.style.top = '22%';
+    // } else {
+    //     wrap.style.top = '17%';
+    //     timeList.style.top = '52%';
+    // }
 }
 
 var handTimer = null;
@@ -200,6 +219,7 @@ async function renderPrayerClock() {
     inner.style.width = inner.style.height = (dial.offsetWidth - 40) + 'px';
 
     // get prayer times and start updates
+    // @TODO: inside textTimer, check when the times cached last time. if it's a new day, fetch new times.
     const times = _TIMES || await getPrayerTimes();  // waits only if not cached
     var pie = document.getElementById('pie');
     pie.style.background = buildClockGradient(times);
