@@ -60,17 +60,36 @@ function buildClockGradient(times){
 }
 
 // Hand shows current time within the current 12h block (0° at 12 o’clock)
-function updateHand(){
+function updateHands(){
     var inner = document.getElementById('inner');
-    var hand  = document.getElementById('hand');
+    var hHand = document.getElementById('hand-hour');
+    var mHand = document.getElementById('hand-minute');
+    var sHand = document.getElementById('hand-second');
+
+    if (!inner || !hHand || !mHand || !sHand) return;
+
     var radius = Math.floor(Math.min(inner.offsetWidth, inner.offsetHeight)/2) + 7;
-    hand.style.height = radius + 'px';
 
-    var nowSec = nowSecSinceMidnight();
-    var angle  = relDeg12h(nowSec);
+    // lengths (tweak multipliers if you want different proportions)
+    hHand.style.height = Math.floor(radius * 0.79) + 'px';
+    mHand.style.height = Math.floor(radius * 0.97) + 'px';
+    sHand.style.height = Math.floor(radius * 0.97) + 'px';
 
-    hand.dataset.angle = String(angle);
-    hand.style.transform = 'translateX(-50%) rotate(' + angle + 'deg)';
+    var nowSec = nowSecSinceMidnight();      // absolute seconds since 00:00
+    // Hour hand: position inside current 12h block (use existing helper)
+    var hourAngle = relDeg12h(nowSec);
+
+    // Minute hand: full turn per hour
+    var secInHour = nowSec % 3600;
+    var minuteAngle = (secInHour / 3600) * 360;
+
+    // Second hand: full turn per minute
+    var secInMinute = nowSec % 60;
+    var secondAngle = (secInMinute / 60) * 360;
+
+    hHand.style.transform = 'translateX(-50%) rotate(' + hourAngle + 'deg)';
+    mHand.style.transform = 'translateX(-50%) rotate(' + minuteAngle + 'deg)';
+    sHand.style.transform = 'translateX(-50%) rotate(' + secondAngle + 'deg)';
 }
 
 function updateTexts(times){
@@ -117,23 +136,36 @@ function updateTexts(times){
 }
 
 var handTimer = null;
+var textTimer = null;
 async function renderPrayerClock() {
     // render clock design
     var container = document.getElementById('prayer-clock-container');
+    
     var dial = document.createElement('div');
     dial.classList.add('dial');
+    
     var pie = document.createElement('div');
     pie.id = 'pie';
     pie.classList.add('pie');
-    var hand = document.createElement('div');
-    hand.id = 'hand';
-    hand.classList.add('hand');
+
+    var handHour = document.createElement('div');
+    handHour.id = 'hand-hour';
+    handHour.classList.add('hand', 'hand-hour');
+    var handMinute = document.createElement('div');
+    handMinute.id = 'hand-minute';
+    handMinute.classList.add('hand', 'hand-minute');
+    var handSecond = document.createElement('div');
+    handSecond.id = 'hand-second';
+    handSecond.classList.add('hand', 'hand-second');
+
     var cap = document.createElement('div');
     cap.id = 'cap';
     cap.classList.add('cap');
+    
     var inner = document.createElement('div');
     inner.id = 'inner';
     inner.classList.add('inner');
+    
     var list = document.createElement('div');
     list.id = 'list';
     list.classList.add('list');
@@ -153,7 +185,9 @@ async function renderPrayerClock() {
         <div><span class="rem-time-text"></span><span id="rem-time" class="rem-time"></span></div>
     `;
     dial.appendChild(pie);
-    dial.appendChild(hand);
+    dial.appendChild(handHour);
+    dial.appendChild(handMinute);
+    dial.appendChild(handSecond);
     dial.appendChild(cap);
     dial.appendChild(inner);
     dial.appendChild(list);
@@ -169,12 +203,17 @@ async function renderPrayerClock() {
     const times = _TIMES || await getPrayerTimes();  // waits only if not cached
     var pie = document.getElementById('pie');
     pie.style.background = buildClockGradient(times);
-    updateHand();
+    updateHands();
     updateTexts(times);
+    
     if (handTimer) { clearInterval(handTimer); }
     handTimer = setInterval(function(){
+        updateHands();
+    }, 1000);
+
+    if (textTimer) { clearInterval(textTimer); }
+    textTimer = setInterval(function(){
         pie.style.background = buildClockGradient(times); // update the gradient too since it will change after 12pm
-        updateHand();
         updateTexts(times);
     }, 60*1000);
 }
