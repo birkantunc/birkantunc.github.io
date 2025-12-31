@@ -125,8 +125,7 @@ function updateTexts(times){
         //remEl.style.padding = '2px 5px';
     }
 
-    // Position: if in upper half (angle < 90 || angle > 270), place texts in lower half
-    console.log('angle:', angle);
+    // Position of the time list and remaining time box based on hour hand angle
     if (angle > 0 && angle < 90) {
         timeList.style.top = '22%';
         timeList.style.transform = 'translateX(-50%)';
@@ -137,21 +136,13 @@ function updateTexts(times){
         wrap.style.top = '17%';
     } else if (angle > 180 && angle < 270) {
         timeList.style.top = '52%';
-        timeList.style.transform = 'translateX(+70%)';
+        timeList.style.transform = 'translateX(+90%)';
         wrap.style.top = '17%';
     } else { // angle >= 270 && angle < 360
         timeList.style.top = '22%';
-        timeList.style.transform = 'translateX(+70%)';
+        timeList.style.transform = 'translateX(+90%)';
         wrap.style.top = '60%';
     }
-
-    // if (angle < 90 || angle > 270) {
-    //     wrap.style.top = '60%';
-    //     timeList.style.top = '22%';
-    // } else {
-    //     wrap.style.top = '17%';
-    //     timeList.style.top = '52%';
-    // }
 }
 
 var handTimer = null;
