@@ -26,11 +26,11 @@ function fmtNow24h(sec){
 // 12-hour dial coloring: 0°=12 o’clock, 90°=3, 180°=6, 270°=9
 function buildClockGradient(times){
     var DAY_SEC = 24 * 60 * 60;
-    var c1='#6FB1FF'; // Fajr
+    var c1='#588ecf'; // Fajr #6FB1FF
     var c2='#E6E6E6'; // Sunrise
-    var c3='#8bd17c'; // Dhuhr
-    var c4='#ffd166'; // Asr
-    var c5='#F84E3D'; // Maghrib
+    var c3='#8cbc82'; // Dhuhr #8bd17c
+    var c4='#dfbb67'; // Asr #ffd166
+    var c5='#d14e42'; // Maghrib #F84E3D
     var c6='#4E4242'; // Isha
 
     var now = nowSecSinceMidnight();
@@ -77,6 +77,7 @@ function updateTexts(times){
     // list times
     var timeList = document.getElementById('list');
     document.getElementById('l-fajr').textContent = fmtNow24h(times.fajr);
+    document.getElementById('l-sun').textContent = fmtNow24h(times.sunrise);
     document.getElementById('l-dhuhr').textContent = fmtNow24h(times.dhuhr);
     document.getElementById('l-asr').textContent = fmtNow24h(times.asr);
     document.getElementById('l-maghrib').textContent = fmtNow24h(times.maghrib);
@@ -85,27 +86,27 @@ function updateTexts(times){
     // now and remaining
     var nowSec = nowSecSinceMidnight();
     var angle = relDeg12h(nowSec);
-    var nowEl = document.getElementById('nowTime');
-    var remEl = document.getElementById('remTime');
+    //var nowEl = document.getElementById('nowTime');
+    var remEl = document.getElementById('rem-time');
     var wrap = document.getElementById('timewrap');
 
-    nowEl.textContent = fmtNow24h(nowSec);
+    //nowEl.textContent = fmtNow24h(nowSec);
     var rem = nextPrayerRemaining(times, nowSec);
     remEl.textContent = fmtHM(rem);
     // if less than 30 minutes remaining, highlight
     if ((rem <= 30*60) && (nowSec >= times.dhuhr) && (nowSec <= times.isha)) {
         remEl.style.color = '#FFFFFF';
-        remEl.style.backgroundColor = '#CD2929';
-        remEl.style.borderRadius = '5px';
-        remEl.style.padding = '2px 5px';
+        wrap.style.backgroundColor = '#fcb9b4';
+        //remEl.style.borderRadius = '5px';
+        //remEl.style.padding = '2px 5px';
     } else {
-        remEl.style.color = '#1B1B1B';
-        remEl.style.backgroundColor = '#F0F0F0';
-        remEl.style.borderRadius = '5px';
-        remEl.style.padding = '2px 5px';
+        //remEl.style.color = '#1B1B1B';
+        wrap.style.backgroundColor = '#f7f3ec'; //#fcb9b4 #f7f5f3
+        //remEl.style.borderRadius = '5px';
+        //remEl.style.padding = '2px 5px';
     }
 
-    // Position: if in upper half (angle < 90 || angle > 180), place texts in lower half
+    // Position: if in upper half (angle < 90 || angle > 270), place texts in lower half
     if (angle < 90 || angle > 270) {
         wrap.style.top = '60%';
         timeList.style.top = '22%';
@@ -117,6 +118,54 @@ function updateTexts(times){
 
 var handTimer = null;
 async function renderPrayerClock() {
+    // render clock design
+    var container = document.getElementById('prayer-clock-container');
+    var dial = document.createElement('div');
+    dial.classList.add('dial');
+    var pie = document.createElement('div');
+    pie.id = 'pie';
+    pie.classList.add('pie');
+    var hand = document.createElement('div');
+    hand.id = 'hand';
+    hand.classList.add('hand');
+    var cap = document.createElement('div');
+    cap.id = 'cap';
+    cap.classList.add('cap');
+    var inner = document.createElement('div');
+    inner.id = 'inner';
+    inner.classList.add('inner');
+    var list = document.createElement('div');
+    list.id = 'list';
+    list.classList.add('list');
+    list.innerHTML = `
+        <div style="margin-top: 19%;"><span class="l-fajr">F</span> <span id="l-fajr" class="l-fajr">0:00</span></div>
+        <div><span class="l-sun">S</span> <span id="l-sun" class="l-sun">0:00</span></div>
+        <div><span class="l-dhuhr">D</span> <span id="l-dhuhr" class="l-dhuhr">0:00</span></div>
+        <div><span class="l-asr">A</span> <span id="l-asr" class="l-asr">0:00</span></div>
+        <div><span class="l-maghrib">M</span> <span id="l-maghrib" class="l-maghrib">0:00</span></div>
+        <div><span class="l-isha">I</span> <span id="l-isha" class="l-isha">0:00</span></div>
+    `;
+    var timewrap = document.createElement('div');
+    timewrap.id = 'timewrap';
+    timewrap.classList.add('timewrap');
+    timewrap.innerHTML = `
+        <div id="nowTime" class="now"></div>
+        <div><span class="rem-time-text"></span><span id="rem-time" class="rem-time"></span></div>
+    `;
+    dial.appendChild(pie);
+    dial.appendChild(hand);
+    dial.appendChild(cap);
+    dial.appendChild(inner);
+    dial.appendChild(list);
+    dial.appendChild(timewrap);
+    container.appendChild(dial);
+
+    // set sizes (dial and pie are square with width = 40% of viewport width, inner is 40px less)
+    dial.style.width = dial.style.height = Math.max(window.innerWidth * 0.5, 340) + 'px';
+    pie.style.width = pie.style.height = dial.offsetWidth + 'px';
+    inner.style.width = inner.style.height = (dial.offsetWidth - 40) + 'px';
+
+    // get prayer times and start updates
     const times = _TIMES || await getPrayerTimes();  // waits only if not cached
     var pie = document.getElementById('pie');
     pie.style.background = buildClockGradient(times);

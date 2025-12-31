@@ -8,24 +8,14 @@
     <link rel="stylesheet" href="css/prayer_clock.css">
 </head>
 <body>
-    <div class="container">
-    <div class="dial">
-        <div id="pie" class="pie"></div>
-        <div id="hand" class="hand"></div>
-        <div id="cap" class="cap"></div>
-        <div id="inner" class="inner"></div>
-        <div id="list" class="list">
-            <div><span class="l-fajr">F</span> <span id="l-fajr" class="l-fajr">0:00</span></div>
-            <div><span class="l-dhuhr">D</span> <span id="l-dhuhr" class="l-dhuhr">0:00</span></div>
-            <div><span class="l-asr">A</span> <span id="l-asr" class="l-asr">0:00</span></div>
-            <div><span class="l-maghrib">M</span> <span id="l-maghrib" class="l-maghrib">0:00</span></div>
-            <div><span class="l-isha">I</span> <span id="l-isha" class="l-isha">0:00</span></div>
+    <div class="maingrid" id="maingrid">
+        <div class="maingrid" id="maingrid-left">
+            <div class="clock-container" id="prayer-clock-container"></div>
         </div>
-        <div id="timewrap" class="timewrap">
-            <div id="nowTime" class="now"></div>
-            <div id="remTime" class="rem"></div>
+        <div class="maingrid" id="maingrid-right">
+            <div class="maingrid" id="maingrid-right-top">TEST</div>
+            <div class="maingrid" id="maingrid-right-bottom">TEST</div>
         </div>
-    </div>
     </div>
 
     <script src="js/prayer_times.js"></script>

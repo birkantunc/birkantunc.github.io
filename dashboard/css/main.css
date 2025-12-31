@@ -4,15 +4,31 @@ body {
     background:#f4f4f4; 
 }
 
-.container {
-    max-width: 340px;
-    margin: 20px auto;
-    padding: 12px;
-    background:#fff;
-    border:1px solid #ddd;
+.maingrid {
+    gap: 10px;
+    margin: 10px auto;
+    padding: 5px;
+    border: 2px solid #d11414;
 }
 
-h1 {
-    font-size: 18px;
-    margin: 0 0 10px;
+#maingrid{
+    display: flex;
+}
+
+#maingrid-left {
+    float: left;
+}
+
+#maingrid-right {
+    float: left;
+    flex-direction: column; /* Ensures children are stacked vertically */
+    width: 100%;
+}
+
+#maingrid-right-top {
+    display: block;
+}
+
+#maingrid-right-bottom {
+    display: block;
 }
