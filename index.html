@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prayer Clock</title>
+    <title>Clock</title>
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
         body {
             font-family: Arial, sans-serif; 
             margin: 0; 
@@ -269,8 +274,11 @@
 
             // current time
             nowEl.textContent = fmtNow24h(nowSec);
-            if ((nowSec >= times.fajr) && (nowSec <= times.dhuhr)) {
+            if ((nowSec >= times.fajr) && (nowSec <= times.sunrise)) {
                 nowEl.style.color = '#457EE8';  // Fajr
+            }
+            if ((nowSec >= times.sunrise) && (nowSec <= times.dhuhr)) {
+                nowEl.style.color = '#1B1B1B';  // None
             }
             else if ((nowSec > times.dhuhr) && (nowSec <= times.asr)) {
                 nowEl.style.color = '#24B604';  // Dhuhr
