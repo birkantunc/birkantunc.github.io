@@ -136,11 +136,11 @@ function updateTexts(times){
         wrap.style.top = '17%';
     } else if (angle > 180 && angle < 270) {
         timeList.style.top = '52%';
-        timeList.style.transform = 'translateX(+60%)';
+        timeList.style.transform = 'translateX(+40%)';
         wrap.style.top = '17%';
     } else { // angle >= 270 && angle < 360
         timeList.style.top = '22%';
-        timeList.style.transform = 'translateX(+60%)';
+        timeList.style.transform = 'translateX(+40%)';
         wrap.style.top = '60%';
     }
 }
