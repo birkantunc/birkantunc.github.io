@@ -131,13 +131,13 @@ function updateTexts(times){
         timeList.style.transform = 'translateX(-50%)';
         wrap.style.top = '60%';
     } else if (angle >= 90 && angle <= 180) {
-        timeList.style.top = '52%';
+        timeList.style.top = '47%';
         timeList.style.transform = 'translateX(-50%)';
-        wrap.style.top = '17%';
+        wrap.style.top = '22%';
     } else if (angle > 180 && angle < 270) {
-        timeList.style.top = '52%';
+        timeList.style.top = '47%';
         timeList.style.transform = 'translateX(+40%)';
-        wrap.style.top = '17%';
+        wrap.style.top = '22%';
     } else { // angle >= 270 && angle < 360
         timeList.style.top = '22%';
         timeList.style.transform = 'translateX(+40%)';
