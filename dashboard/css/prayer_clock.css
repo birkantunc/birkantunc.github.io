@@ -1,5 +1,6 @@
-.clock-container {
+.prayer-clock-container {
     margin: auto;
+    margin-top: 20px;
     padding: 12px;
     /*border: 1px solid #ddd;*/
 }
