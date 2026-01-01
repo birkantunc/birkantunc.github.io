@@ -136,11 +136,11 @@ function updateTexts(times){
         wrap.style.top = '17%';
     } else if (angle > 180 && angle < 270) {
         timeList.style.top = '52%';
-        timeList.style.transform = 'translateX(+90%)';
+        timeList.style.transform = 'translateX(+60%)';
         wrap.style.top = '17%';
     } else { // angle >= 270 && angle < 360
         timeList.style.top = '22%';
-        timeList.style.transform = 'translateX(+90%)';
+        timeList.style.transform = 'translateX(+60%)';
         wrap.style.top = '60%';
     }
 }
@@ -180,7 +180,7 @@ async function renderPrayerClock() {
     list.id = 'list';
     list.classList.add('list');
     list.innerHTML = `
-        <div style="margin-top: 19%;"><span class="l-fajr">F</span> <span id="l-fajr" class="l-fajr">0:00</span></div>
+        <div style="margin-top: 15%;"><span class="l-fajr">F</span> <span id="l-fajr" class="l-fajr">0:00</span></div>
         <div><span class="l-sun">S</span> <span id="l-sun" class="l-sun">0:00</span></div>
         <div><span class="l-dhuhr">D</span> <span id="l-dhuhr" class="l-dhuhr">0:00</span></div>
         <div><span class="l-asr">A</span> <span id="l-asr" class="l-asr">0:00</span></div>
