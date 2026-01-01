@@ -1,0 +1,28 @@
+.prayer-list {
+    position: absolute;
+    right: 200px;
+    width: 400px;
+    padding: 20px;
+    background-color: #f7f3ec;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 47px;
+    font-weight: 600;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.l-fajr { color: #588ecf; }
+.l-sun { color: #acacac; }
+.l-dhuhr { color: #6a9f5f; }
+.l-asr { color: #F2AB04; }
+.l-maghrib { color: #d14e42; }
+.l-isha { color: #4E4242; }
+
+.rem-time {
+    margin-top: 25px;
+    font-size: 70px;
+    font-weight: 600;
+    color: #4E4242;
+}

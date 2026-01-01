@@ -1,1 +1,2 @@
 renderPrayerClock();
+renderPrayerList();
