@@ -36,8 +36,8 @@ async function renderPrayerList() {
         <div><span class="l-dhuhr">D</span> <span id="l-dhuhr" class="l-dhuhr">0:00</span></div>
         <div><span class="l-asr">A</span> <span id="l-asr" class="l-asr">0:00</span></div>
         <div><span class="l-maghrib">M</span> <span id="l-maghrib" class="l-maghrib">0:00</span></div>
-        <div><span class="l-isha">I</span> <span id="l-isha" class="l-isha">0:00</span></div>
-        <div id="rem-time" class="rem-time"></div>
+        <div><span class="l-isha">I</span> <span id="l-isha" class="l-isha">0:00</span></div><br />
+        <div><span class="rem-time-label">Next in </span><span id="rem-time" class="rem-time"></span></div>
     `;
     container.appendChild(list);
 
@@ -48,6 +48,8 @@ async function renderPrayerList() {
 
     if (textTimer) { clearInterval(textTimer); }
     textTimer = setInterval(function(){
+        // read current times again in case of day change (it is updated in prayer_clock.js)
+        const times = _TIMES;
         updateTexts(times);
     }, 60*1000);
 }

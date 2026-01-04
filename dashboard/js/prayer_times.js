@@ -1,4 +1,6 @@
 var _TIMES = null;
+var _LAST_FETCH_DAY = null;
+
 // times in seconds since 00:00
 function getPrayerTimes() {
     const city = "Philadelphia";
@@ -27,6 +29,7 @@ function getPrayerTimes() {
             maghrib: toSec(t.Maghrib),
             isha:    toSec(t.Isha)
         };
+        _LAST_FETCH_DAY = new Date().setHours(0, 0, 0, 0);
         return _TIMES;
     });
 }

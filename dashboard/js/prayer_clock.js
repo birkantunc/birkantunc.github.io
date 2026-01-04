@@ -93,6 +93,7 @@ function updateHands(){
 }
 
 var handTimer = null;
+var gradientTimer = null;
 async function renderPrayerClock() {
     // render clock design
     var container = document.getElementById('prayer-clock-container');
@@ -146,4 +147,16 @@ async function renderPrayerClock() {
     handTimer = setInterval(function(){
         updateHands();
     }, 1000);
+
+    if (gradientTimer) { clearInterval(gradientTimer); }
+    gradientTimer = setInterval(function(){
+        // check if we need to fetch new prayer times (new day)
+        var today = new Date().setHours(0, 0, 0, 0);
+        if (today !== _LAST_FETCH_DAY) {
+            getPrayerTimes();
+        }
+        const times = _TIMES;
+        var pie = document.getElementById('pie');
+        pie.style.background = buildClockGradient(times);
+    }, 60*1000);
 }
