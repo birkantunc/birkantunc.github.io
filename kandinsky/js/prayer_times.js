@@ -1,5 +1,6 @@
-var _TIMES = null;
-var _LAST_FETCH_DAY = null;
+var TIMES = null;
+var LAST_FETCH_DAY = null;
+var SECONDS_IN_DAY = 24 * 60 * 60;
 
 // times in seconds since 00:00
 function getPrayerTimes() {
@@ -21,7 +22,7 @@ function getPrayerTimes() {
     })
     .then(json => {
         const t = json && json.data && json.data.timings ? json.data.timings : {};
-        _TIMES = {
+        TIMES = {
             fajr:    toSec(t.Fajr),
             sunrise: toSec(t.Sunrise),
             dhuhr:   toSec(t.Dhuhr),
@@ -29,18 +30,27 @@ function getPrayerTimes() {
             maghrib: toSec(t.Maghrib),
             isha:    toSec(t.Isha)
         };
-        _LAST_FETCH_DAY = new Date().setHours(0, 0, 0, 0);
-        return _TIMES;
+        LAST_FETCH_DAY = new Date().setHours(0, 0, 0, 0);
+        return TIMES;
     });
 }
 
-function nextPrayerRemaining(times, nowSec){
-    var DAY_SEC = 24 * 60 * 60;
-    var seq = [times.fajr, times.sunrise, times.dhuhr, times.asr, times.maghrib, times.isha, times.fajr + DAY_SEC];
+
+function nowSecSinceMidnight(){
+    var d=new Date();
+    return d.getHours()*3600 + d.getMinutes()*60 + d.getSeconds();
+}
+
+
+async function nextPrayerRemaining(){
+    const times = TIMES || await getPrayerTimes();  // waits only if not cached
+
+    var nowSec = nowSecSinceMidnight();
+    var seq = [times.fajr, times.sunrise, times.dhuhr, times.asr, times.maghrib, times.isha, times.fajr + SECONDS_IN_DAY];
     for (var i=0;i<seq.length;i++){
         if (seq[i] > nowSec) {
             return seq[i] - nowSec;
         }
     }
-    return (times.fajr + DAY_SEC) - nowSec;
+    return (times.fajr + SECONDS_IN_DAY) - nowSec;
 }
