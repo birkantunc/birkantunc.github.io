@@ -37,7 +37,7 @@
     }
 
     .next_text, .temp_text, .current_text {
-        font-family: Sana, Sana;
+        font-family: Sana, 'Piboto', 'DejaVu Sans', sans-serif;
     }
 
     .cls-10 {
