@@ -151,7 +151,7 @@ async function updateTime() {
     // -----------------------
     const fajrLineX = parseFloat(document.getElementById('fajr_line').getAttribute('x1'));
     const endLineX = parseFloat(document.getElementById('end_line').getAttribute('x1'));
-    const whiteLineOriginalX = 287.85; // Hardcoded from your SVG data for #white_line
+    const whiteLineOriginalX = 254.78; // Hardcoded from your SVG data for #white_line
 
     // Calculate position on timeline
     // Timeline represents exactly 24 hours from Fajr to next Fajr
@@ -169,5 +169,5 @@ async function updateTime() {
     const translateX = targetX - whiteLineOriginalX;
 
     // Move the entire group
-    document.getElementById('time_and_next').setAttribute('transform', `translate(${translateX}, 0)`);
+    document.getElementById('current_location').setAttribute('transform', `translate(${translateX}, 0)`);
 }

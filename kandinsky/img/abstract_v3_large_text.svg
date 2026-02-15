@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 600">
+  <!-- Generator: Adobe Illustrator 30.1.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 136)  -->
+  <defs>
+    <style>
+      .st0 {
+        opacity: .75;
+      }
+
+      .st0, .st1 {
+        fill: #aaa;
+      }
+
+      .st2 {
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 22.04px;
+      }
+
+      .st2, .st3 {
+        fill: #f2f2f2;
+      }
+
+      .st4 {
+        fill: #e2b937;
+      }
+
+      .st5 {
+        fill: #51b781;
+      }
+
+      .st6 {
+        stroke-width: 9.86px;
+      }
+
+      .st6, .st7, .st8, .st9, .st10, .st11, .st12, .st13, .st14, .st15, .st16, .st17, .st18, .st19, .st20, .st21, .st22, .st23, .st24, .st25, .st26, .st27, .st28 {
+        stroke-miterlimit: 10;
+      }
+
+      .st6, .st7, .st8, .st10, .st13, .st29, .st21, .st23, .st26, .st27, .st30, .st31 {
+        opacity: .79;
+      }
+
+      .st6, .st7, .st32, .st13, .st29, .st33, .st21 {
+        fill: #6da6ba;
+      }
+
+      .st6, .st7, .st21 {
+        stroke: #7787a0;
+      }
+
+      .st7 {
+        stroke-width: 6.72px;
+      }
+
+      .st34 {
+        fill: #f7f7f7;
+        font-size: 129.68px;
+      }
+
+      .st34, .st3, .st35 {
+        font-family: Sana, Sana;
+      }
+
+      .st8 {
+        stroke-width: 7.17px;
+      }
+
+      .st8, .st10, .st26 {
+        stroke: #174090;
+      }
+
+      .st8, .st26 {
+        fill: #d1d3d3;
+      }
+
+      .st36 {
+        fill: #0c2126;
+      }
+
+      .st9 {
+        stroke-width: 1.59px;
+      }
+
+      .st9, .st11, .st12, .st14, .st15, .st16, .st17, .st18, .st19, .st20, .st22, .st24, .st25, .st28 {
+        fill: none;
+      }
+
+      .st9, .st24 {
+        stroke: #f4f1ea;
+      }
+
+      .st37 {
+        fill: #e05838;
+        opacity: .58;
+      }
+
+      .st10 {
+        fill: #eeeee7;
+      }
+
+      .st10, .st26 {
+        stroke-width: 1.34px;
+      }
+
+      .st38, .st27 {
+        fill: #b8c6c9;
+      }
+
+      .st39 {
+        fill: #d0762c;
+      }
+
+      .st11 {
+        stroke-width: 1.03px;
+      }
+
+      .st11, .st12, .st14, .st17, .st18, .st19, .st20, .st22, .st25, .st28 {
+        stroke: #000;
+      }
+
+      .st12 {
+        stroke-width: 1.06px;
+      }
+
+      .st13 {
+        stroke: #b8c6c9;
+        stroke-width: 10.76px;
+      }
+
+      .st14 {
+        stroke-width: 1.54px;
+      }
+
+      .st15 {
+        stroke: #6b3b17;
+      }
+
+      .st15, .st16 {
+        stroke-width: 2.27px;
+      }
+
+      .st33 {
+        opacity: .41;
+      }
+
+      .st40 {
+        fill: #9f3d1b;
+      }
+
+      .st16 {
+        stroke: #2c8454;
+      }
+
+      .st41 {
+        fill: #ada6a5;
+      }
+
+      .st17 {
+        stroke-width: .4px;
+      }
+
+      .st18 {
+        stroke-width: .27px;
+      }
+
+      .st19 {
+        stroke-width: .45px;
+      }
+
+      .st20 {
+        stroke-width: .39px;
+      }
+
+      .st21, .st27 {
+        stroke-width: 2.24px;
+      }
+
+      .st42 {
+        fill: #353433;
+        opacity: .84;
+      }
+
+      .st3 {
+        font-size: 58.28px;
+      }
+
+      .st22 {
+        stroke-width: .51px;
+      }
+
+      .st43 {
+        fill: #a59d88;
+      }
+
+      .st23 {
+        stroke: #d1d3d3;
+        stroke-width: 4.03px;
+      }
+
+      .st23, .st31 {
+        fill: #174090;
+      }
+
+      .st44 {
+        opacity: .55;
+      }
+
+      .st24 {
+        opacity: .87;
+        stroke-width: 2px;
+      }
+
+      .st45 {
+        fill: #a57a74;
+      }
+
+      .st46 {
+        fill: #54461d;
+        opacity: .89;
+      }
+
+      .st25 {
+        stroke-width: 2.06px;
+      }
+
+      .st27 {
+        stroke: #6da6ba;
+      }
+
+      .st47 {
+        opacity: .28;
+      }
+
+      .st47, .st30 {
+        fill: #7787a0;
+      }
+
+      .st35 {
+        fill: #fff;
+        font-size: 108.07px;
+      }
+
+      .st28 {
+        stroke-width: 2.57px;
+      }
+    </style>
+  </defs>
+  <g id="logo">
+    <rect class="st43" x="923.3" y="488.14" width="28.45" height="66.9"/>
+    <path class="st4" d="M952.6,465.29c2.76-.68,5.65-1.05,8.63-1.05,19.75,0,35.77,16.01,35.77,35.77s-16.01,35.77-35.77,35.77c-3.28,0-6.46-.44-9.48-1.27l.85-69.22Z"/>
+    <path class="st42" d="M931.43,535.78c-7.72-7.89-12.49-18.7-12.49-30.61,0-24.13,19.52-43.7,43.64-43.78v-31.11c-40.8,0-73.87,33.07-73.87,73.87,0,11.32,2.55,22.04,7.1,31.63h35.63Z"/>
+    <rect class="st46" x="952.18" y="421.24" width="10.4" height="66.9"/>
+    <circle class="st37" cx="974.38" cy="542.32" r="12.72"/>
+    <line class="st12" x1="958.52" y1="526.48" x2="997" y2="526.48"/>
+    <line class="st18" x1="881.3" y1="539.51" x2="991.05" y2="539.51"/>
+    <line class="st17" x1="930.53" y1="546.95" x2="1002.81" y2="546.95"/>
+    <line class="st9" x1="939.65" y1="437.58" x2="939.65" y2="582.68"/>
+    <line class="st17" x1="894.31" y1="558.12" x2="957.89" y2="558.12"/>
+    <line class="st12" x1="912.66" y1="566.83" x2="968.84" y2="566.83"/>
+    <line class="st18" x1="919.92" y1="546.65" x2="919.92" y2="587.02"/>
+    <line class="st18" x1="929.42" y1="550.98" x2="929.42" y2="582.68"/>
+    <rect class="st45" x="924.39" y="558.25" width="4.96" height="4.96"/>
+    <rect class="st41" x="926.64" y="563.21" width="2.7" height="2.86"/>
+  </g>
+  <g id="temp">
+    <polygon id="temp_x5F_triangle" class="st0" points="215.92 483.39 153.14 512.9 192.17 548.57 215.92 483.39"/>
+    <text id="temp_x5F_value" class="st3" transform="translate(162.79 520.37)"><tspan x="0" y="0">33</tspan></text>
+    <text id="degree_x5F_sign" class="st2" transform="translate(207.22 493.69)"><tspan x="0" y="0">o</tspan></text>
+  </g>
+  <g id="prayer_x5F_times">
+    <g id="fajr_x5F_rect">
+      <rect class="st32" x="59.65" y="68.48" width="48" height="87.35"/>
+    </g>
+    <g id="sunrise_x5F_rect">
+      <rect class="st38" x="107.65" y="75" width="130.57" height="74.32"/>
+    </g>
+    <g id="dhuhr_x5F_rect">
+      <rect class="st5" x="238.22" y="59.72" width="96.12" height="104.88"/>
+    </g>
+    <g id="asr_x5F_rect">
+      <rect class="st39" x="334.34" y="79.73" width="113.55" height="64.85"/>
+    </g>
+    <g id="maghrib_x5F_rect">
+      <rect class="st40" x="447.89" y="68.48" width="56.15" height="87.35"/>
+    </g>
+    <g id="isha_x5F_rect">
+      <rect class="st36" x="504.04" y="59.72" width="300.26" height="104.88"/>
+    </g>
+    <line id="sunrise_x5F_line" class="st22" x1="107.65" y1="41.96" x2="107.65" y2="212.77"/>
+    <line id="dhuhr_x5F_line" class="st14" x1="238.22" y1="31.82" x2="238.22" y2="181.57"/>
+    <line id="asr_x5F_line" class="st11" x1="334.34" y1="34.94" x2="334.34" y2="215.89"/>
+    <line id="maghrib_x5F_line" class="st25" x1="447.89" y1="57.17" x2="447.89" y2="202.63"/>
+    <line id="isha_x5F_line" class="st22" x1="504.04" y1="46.64" x2="504.04" y2="215.89"/>
+    <line id="end_x5F_line" class="st22" x1="804.3" y1="43.07" x2="804.3" y2="182.69"/>
+    <line id="fajr_x5F_line" class="st28" x1="59.65" y1="38.45" x2="59.65" y2="233.05"/>
+    <g id="top_x5F_lines">
+      <line class="st20" x1="34.11" y1="57.09" x2="752.24" y2="57.09"/>
+      <line class="st11" x1="47.17" y1="51.32" x2="877.82" y2="51.32"/>
+      <line class="st22" x1="232.02" y1="47.11" x2="972.97" y2="47.11"/>
+    </g>
+  </g>
+  <g id="time_x5F_and_x5F_next">
+    <g id="next_x5F_circle" class="st44">
+      <circle class="st39" cx="663.02" cy="453.41" r="108.88"/>
+    </g>
+    <g id="current_x5F_circle" class="st44">
+      <circle class="st5" cx="455.16" cy="376" r="146.69"/>
+    </g>
+    <circle id="current_x5F_stroke" class="st16" cx="416.46" cy="376" r="146.69"/>
+    <g id="current_x5F_rects">
+      <rect class="st1" x="407.98" y="286.94" width="50.88" height="109.28"/>
+      <rect class="st42" x="375.45" y="384.38" width="128.38" height="50.88"/>
+    </g>
+    <circle id="next_x5F_stroke" class="st15" cx="691.02" cy="453.32" r="113.77"/>
+    <text id="current_x5F_hour" class="st34" transform="translate(380.6 357.73)"><tspan x="0" y="0">13</tspan></text>
+    <text id="current_x5F_minute" class="st34" transform="translate(401.65 455.62)"><tspan x="0" y="0">27</tspan></text>
+    <text id="next_x5F_time" class="st35" transform="translate(618.47 485.02)"><tspan x="0" y="0">1.59</tspan></text>
+  </g>
+  <g id="current_x5F_location">
+    <line id="white_x5F_line" class="st24" x1="254.78" y1="17.41" x2="254.78" y2="206.66"/>
+    <polyline id="gray_x5F_tri_x5F_upper" class="st0" points="275.73 211.4 275.73 193.87 252.91 202.63"/>
+    <polyline id="gray_x5F_tri_x5F_lower" class="st0" points="233.55 30.38 233.55 12.85 256.37 21.61"/>
+  </g>
+  <g>
+    <polygon class="st33" points="67.73 540.6 46.85 499.95 88.6 499.95 67.73 540.6"/>
+    <polygon class="st47" points="85.44 547.41 67.8 501.27 103.08 501.27 85.44 547.41"/>
+    <polygon class="st31" points="57.72 550.65 70.37 496.34 79.18 499.18 57.72 550.65"/>
+    <polygon class="st31" points="44.4 530.95 51.32 499.05 57.41 501.02 44.4 530.95"/>
+    <polygon class="st29" points="39.54 580.92 64.71 493.16 70.37 494.99 39.54 580.92"/>
+    <polygon class="st29" points="101 556.99 116.59 498.17 122.7 500.14 101 556.99"/>
+    <polygon class="st31" points="82.28 546.19 91.84 501.48 100.64 504.32 82.28 546.19"/>
+    <polygon class="st31" points="124.35 523.98 128.72 499.05 135.36 501.2 124.35 523.98"/>
+    <polygon class="st30" points="62.8 535.43 72.38 496.18 77.95 497.98 62.8 535.43"/>
+    <polygon class="st30" points="64.11 569.26 83.33 499.64 89.17 501.52 64.11 569.26"/>
+    <polygon class="st29" points="127.92 515.95 130.19 500.2 135.27 501.84 127.92 515.95"/>
+    <polygon class="st30" points="102.83 524.93 101.3 510.96 108.47 512.06 102.83 524.93"/>
+    <polygon class="st30" points="28.82 510.13 27.78 496.34 37.71 499.55 28.82 510.13"/>
+    <path class="st19" d="M94.46,439.92c12.51-7.75,29.07-7.08,41.03,2.83,10.12,8.38,14.35,21.22,12.23,33.29"/>
+    <circle class="st8" cx="113.74" cy="467.71" r="21.16"/>
+    <circle class="st21" cx="53.77" cy="477.64" r="24.16"/>
+    <circle class="st27" cx="76.28" cy="462.42" r="26.39"/>
+    <circle class="st23" cx="90.39" cy="475.84" r="28.28"/>
+    <circle class="st10" cx="73.27" cy="475.84" r="20.5"/>
+    <circle class="st13" cx="105.86" cy="481.17" r="20.92"/>
+    <circle class="st27" cx="130.16" cy="481.17" r="20.83"/>
+    <circle class="st7" cx="76.28" cy="477.25" r="15.91"/>
+    <circle class="st6" cx="127.54" cy="481.3" r="13.22"/>
+    <circle class="st23" cx="40.67" cy="442.23" r="6.05"/>
+    <circle class="st26" cx="44.74" cy="485.15" r="7.35"/>
+    <circle class="st10" cx="131.6" cy="480.31" r="8.81"/>
+    <path class="st19" d="M47.89,449.42c-8.05,1.53-15.04,5.85-19.27,12.7-6.11,9.89-4.91,22.54,1.95,33.08"/>
+    <polygon class="st31" points="75.7 563.36 75.23 550.19 80.5 551.09 75.7 563.36"/>
+    <polygon class="st29" points="116.75 544.39 116.56 532.93 123.6 535.2 116.75 544.39"/>
+    <polygon class="st29" points="36.82 538.73 33.35 526.07 41.42 526.43 36.82 538.73"/>
+  </g>
+</svg>

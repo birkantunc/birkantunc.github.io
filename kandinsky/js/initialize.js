@@ -1,4 +1,4 @@
-const SVG_PATH = 'img/abstract_v3_1024_600.svg';
+const SVG_PATH = 'img/abstract_v3.svg';
 const CONTAINER_ID = 'svg-container';
 
 var timer0 = null;
