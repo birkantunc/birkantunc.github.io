@@ -233,6 +233,6 @@
     <circle id="next_stroke" class="time_stroke_next" cx="691.02" cy="453.32" r="113.77"/>
     <text id="current_hour" class="current_text" transform="translate(380.6 373)"><tspan x="0" y="0">13</tspan></text>
     <text id="current_minute" class="current_text" transform="translate(401.65 469)"><tspan x="0" y="0">27</tspan></text>
-    <text id="next_time" class="next_text" transform="translate(608.47 485.02)"><tspan x="0" y="0">1.59</tspan></text>
+    <text id="next_time" class="next_text" transform="translate(621 485.02)"><tspan x="0" y="0">1.59</tspan></text>
 </g>
 </svg>

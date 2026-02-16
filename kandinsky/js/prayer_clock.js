@@ -99,10 +99,23 @@ async function updateTime() {
 
     // Remaining Time
     const remSec = await nextPrayerRemaining();
-    const remH = Math.floor(remSec / 3600);
+    const remH = 1;//Math.floor(remSec / 3600);
     const remM = Math.floor((remSec % 3600) / 60);
     // Format "h.m" (e.g. 1.59)
-    document.querySelector('#next_time tspan').textContent = `${remH}.${remM < 10 ? '0' + remM : remM}`;
+    if (remH < 1) {
+        document.querySelector('#next_time tspan').textContent = `${remM < 10 ? '0' + remM : remM}`;
+    }
+    else if (remH > 9) {
+        const newTransX = 621 - 17; // Shift left for 2-digit hour
+        document.getElementById('next_time').setAttribute('transform', `translate(${newTransX} 485.02)`);
+        document.querySelector('#next_time tspan').textContent = `${remH}.${remM < 10 ? '0' + remM : remM}`;
+    }
+    else {
+        const newTransX = 621 - 10; // Shift left for 1-digit hour
+        document.getElementById('next_time').setAttribute('transform', `translate(${newTransX} 485.02)`);
+        document.querySelector('#next_time tspan').textContent = `${remH}.${remM < 10 ? '0' + remM : remM}`;
+    }
+    
 
 
     // 2. Determine Current Phase & Update Classes
