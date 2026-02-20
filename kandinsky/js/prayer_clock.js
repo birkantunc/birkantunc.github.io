@@ -147,12 +147,12 @@ async function updateTime() {
     // 1. Update Text Elements
     // -----------------------
     // Hours
-    const nowHour = now.getHours();
-    document.querySelector('#current_hour tspan').textContent = nowHour;
-    if (nowHour < 10) {
+    const hour = now.getHours();
+    document.querySelector('#current_hour tspan').textContent = hour;
+    if (hour < 10) {
         document.getElementById('current_hour').setAttribute('transform', `translate(407 373)`);
     }
-    if (nowHour > 19) {
+    if (hour > 19) {
         document.getElementById('current_hour').setAttribute('transform', `translate(351 373)`);
     }
     else {
