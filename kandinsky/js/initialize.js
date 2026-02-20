@@ -16,6 +16,7 @@ fetch(SVG_PATH)
             // render time rects
             updateTimeRects();
             updateTime();
+            updateWeather();
 
             if (timer0) { clearInterval(timer0); }
             timer0 = setInterval(async function(){
@@ -26,6 +27,7 @@ fetch(SVG_PATH)
                     updateTimeRects();
                 }
                 updateTime();
+                updateWeather();
             }, 60*1000);
         })
         .catch(console.error);

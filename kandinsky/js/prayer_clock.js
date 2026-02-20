@@ -10,6 +10,62 @@ function nowSecSinceMidnight(){
     return d.getHours()*3600 + d.getMinutes()*60 + d.getSeconds();
 }
 
+function getWeather() {
+    // Philadelphia coordinates (Open-Meteo requires lat/lon unlike Aladhan)
+    const lat = 39.9526;
+    const lon = -75.1652;
+    
+    // params: temperature_2m, weather_code, current_weather=true, temperature_unit=fahrenheit
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code&temperature_unit=fahrenheit`;
+
+    // Helper to convert WMO numeric codes to text (Sunny, Cloudy, etc.)
+    const decodeWeather = (code) => {
+        if (code === 0) return "sun"; // Clear sky
+        if (code >= 1 && code <= 3) return "partial_sun"; // Mainy clear, partly cloudy, overcast
+        if (code >= 45 && code <= 48) return "cloud";
+        if (code >= 51 && code <= 67) return "rain"; // Drizzle or Rain
+        if (code >= 71 && code <= 77) return "snow";
+        if (code >= 80 && code <= 82) return "rain"; // Showers
+        if (code >= 85 && code <= 86) return "snow"; // Snow showers
+        if (code >= 95 && code <= 99) return "thunder"; // Thunderstorm
+        return "cloud"; // Default fallback
+    };
+
+    return fetch(url)
+    .then(res => {
+        if (!res.ok) throw new Error("Open-Meteo request failed");
+        return res.json();
+    })
+    .then(json => {
+        const current = json.current || {};
+        
+        return {
+            temperature: current.temperature_2m, // Returns temp in F
+            condition: decodeWeather(current.weather_code), // Returns string (e.g., "Sunny")
+            //unit: json.current_units.temperature_2m // Returns "°F"
+        };
+    });
+}
+
+
+async function updateWeather() {
+    try {
+        const weather = await getWeather();
+        // round temp to integer for display
+        const temp = Math.round(weather.temperature);
+        document.querySelector('#temp_value tspan').textContent = temp;
+
+        // Update weather icon based on condition
+        const icon_src = `img/${weather.condition}.png`; // e.g., img/sun.png, img/rain.png
+        const icon_img = document.getElementById('weather_icon');
+        if (icon_img) {
+            icon_img.setAttribute('src', icon_src);
+        }
+    } catch (error) {
+        console.error("Failed to update weather:", error);
+    }
+}
+
 
 async function updateTimeRects() {
     const times = TIMES || await getPrayerTimes();  // waits only if not cached
@@ -91,7 +147,17 @@ async function updateTime() {
     // 1. Update Text Elements
     // -----------------------
     // Hours
-    document.querySelector('#current_hour tspan').textContent = now.getHours();
+    const nowHour = now.getHours();
+    document.querySelector('#current_hour tspan').textContent = nowHour;
+    if (nowHour < 10) {
+        document.getElementById('current_hour').setAttribute('transform', `translate(407 373)`);
+    }
+    if (nowHour > 19) {
+        document.getElementById('current_hour').setAttribute('transform', `translate(351 373)`);
+    }
+    else {
+        document.getElementById('current_hour').setAttribute('transform', `translate(378 373)`);
+    }
     
     // Minutes (padded)
     const min = now.getMinutes();
@@ -99,7 +165,7 @@ async function updateTime() {
 
     // Remaining Time
     const remSec = await nextPrayerRemaining();
-    const remH = 1;//Math.floor(remSec / 3600);
+    const remH = Math.floor(remSec / 3600);
     const remM = Math.floor((remSec % 3600) / 60);
     // Format "h.m" (e.g. 1.59)
     if (remH < 1) {

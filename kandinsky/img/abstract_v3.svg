@@ -192,9 +192,9 @@
     <rect class="cls-34" x="916.99" y="544.44" width="4.96" height="4.96"/>
     <rect class="cls-30" x="919.25" y="549.4" width="2.7" height="2.86"/>
 </g>
-<g id="temp">
+<g id="temp" transform="translate(-45 7)">
     <polygon id="temp_triangle" class="temp_triangle" points="234.81 480.09 172.03 509.59 211.06 545.26 234.81 480.09"/>
-    <text id="temp_value" class="temp_text" transform="translate(181.68 517.07)"><tspan x="0" y="0">33</tspan></text>
+    <text id="temp_value" class="temp_text" transform="translate(178 519)"><tspan x="0" y="0">33</tspan></text>
     <text id="degree_sign" class="temp_degree" transform="translate(226.11 490.38)"><tspan x="0" y="0">o</tspan></text>
 </g>
 <g id="prayer_times">
@@ -222,7 +222,7 @@
     <polyline id="gray_tri_upper" class="temp_triangle" points="275.73 211.4 275.73 193.87 252.91 202.63"/>
     <polyline id="gray_tri_lower" class="temp_triangle" points="233.55 30.38 233.55 12.85 256.37 21.61"/>
 </g>
-<g id="time_and_next">
+<g id="time_and_next" transform="translate(5 27)">
     <circle id="next_circle" class="asr time_circle" cx="663.02" cy="453.41" r="108.88"/>
     <circle id="current_circle" class="dhuhr time_circle" cx="455.16" cy="376" r="146.69"/>
     <circle id="current_stroke" class="time_stroke_current" cx="416.46" cy="376" r="146.69"/>
@@ -231,8 +231,8 @@
         <rect class="current_minute_rect" x="375.45" y="384.38" width="128.38" height="50.88"/>
     </g>
     <circle id="next_stroke" class="time_stroke_next" cx="691.02" cy="453.32" r="113.77"/>
-    <text id="current_hour" class="current_text" transform="translate(380.6 373)"><tspan x="0" y="0">13</tspan></text>
-    <text id="current_minute" class="current_text" transform="translate(401.65 469)"><tspan x="0" y="0">27</tspan></text>
+    <text id="current_hour" class="current_text" transform="translate(381 373)"><tspan x="0" y="0">13</tspan></text>
+    <text id="current_minute" class="current_text" transform="translate(401 469)"><tspan x="0" y="0">27</tspan></text>
     <text id="next_time" class="next_text" transform="translate(621 485.02)"><tspan x="0" y="0">1.59</tspan></text>
 </g>
 </svg>

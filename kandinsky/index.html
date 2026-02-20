@@ -28,6 +28,7 @@
             display: flex;       /* Centers content if aspect ratios differ slightly */
             justify-content: center;
             align-items: center;
+            z-index: 0;  
         }
 
         /* Force Loaded SVG to Respond */
@@ -36,11 +37,27 @@
             height: 100%;
             display: block;      /* Removes bottom whitespace */
         }
+
+        #weather-icon-container {
+            position: absolute;
+            bottom: 10px;
+            left: 20px;
+            width: 10%;
+            z-index: 1;
+        }
+        #weather_icon {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures the icon scales without distortion */
+        }
     </style>
 </head>
 <body>
 
     <div id="svg-container"></div>
+    <div id="weather-icon-container">
+        <img id="weather_icon" src="" alt="Weather Icon">
+    </div>
 
     <script src="js/prayer_times.js"></script>
     <script src="js/prayer_clock.js"></script>
