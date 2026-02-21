@@ -152,7 +152,7 @@ async function updateTime() {
     if (hour < 10) {
         document.getElementById('current_hour').setAttribute('transform', `translate(407 373)`);
     }
-    if (hour > 19) {
+    else if (hour > 19) {
         document.getElementById('current_hour').setAttribute('transform', `translate(351 373)`);
     }
     else {
