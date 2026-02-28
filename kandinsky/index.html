@@ -1,3 +1,12 @@
+<!--   
+You need to run chrome in kiosk mode:
+#!/bin/sh
+xset s noblank
+xset s off
+unclutter -idle 1 -root &
+chromium --kiosk --noerrdialogs --disable-infobars --autoplay-policy=no-user-gesture-required --app='https://birkantunc.github.io/kandinsky' &
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,6 +67,12 @@
     <div id="weather-icon-container">
         <img id="weather_icon" src="" alt="Weather Icon">
     </div>
+
+    <audio id="prayer-audio-fajr" src="audio/fajr.mp3" preload="auto"></audio>
+    <audio id="prayer-audio-dhuhr" src="audio/dhuhr.mp3" preload="auto"></audio>
+    <audio id="prayer-audio-asr" src="audio/asr.mp3" preload="auto"></audio>
+    <audio id="prayer-audio-maghrib" src="audio/maghrib.mp3" preload="auto"></audio>
+    <audio id="prayer-audio-isha" src="audio/isha.mp3" preload="auto"></audio>
 
     <script src="js/prayer_times.js"></script>
     <script src="js/prayer_clock.js"></script>

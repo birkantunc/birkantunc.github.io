@@ -16,6 +16,7 @@ fetch(SVG_PATH)
         .then(times => {
             // render time rects
             updateTimeRects();
+            setAdhanTimers();
             updateTime();
             updateWeather();
 
@@ -27,6 +28,7 @@ fetch(SVG_PATH)
                 if (today !== LAST_FETCH_DAY) {
                     await getPrayerTimes();
                     updateTimeRects();
+                    setAdhanTimers();
                 }
                 updateTime();
             }, 60*1000);

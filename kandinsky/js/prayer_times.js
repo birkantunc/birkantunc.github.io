@@ -54,3 +54,24 @@ async function nextPrayerRemaining(){
     }
     return (times.fajr + SECONDS_IN_DAY) - nowSec;
 }
+
+
+async function setAdhanTimers() {
+    const times = TIMES || await getPrayerTimes();  // waits only if not cached
+
+    const prayerNames = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'];
+    const nowSec = nowSecSinceMidnight();
+
+    prayerNames.forEach(prayer => {
+        const timeSec = times[prayer];
+        let delay = timeSec - nowSec;
+        if (delay > 0) {
+            setTimeout(() => {
+                const audio = document.getElementById(`prayer-audio-${prayer}`);
+                if (audio) {
+                    audio.play().catch(console.error);
+                }
+            }, delay * 1000);
+        }
+    });
+}
