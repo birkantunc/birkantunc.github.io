@@ -62,16 +62,19 @@ async function setAdhanTimers() {
     const prayerNames = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'];
     const nowSec = nowSecSinceMidnight();
 
-    prayerNames.forEach(prayer => {
+    for (const prayer of prayerNames) {
         const timeSec = times[prayer];
         let delay = timeSec - nowSec;
+        
         if (delay > 0) {
+            //console.log(`Setting timer for ${prayer} in ${delay} seconds`);
             setTimeout(() => {
                 const audio = document.getElementById(`prayer-audio-${prayer}`);
                 if (audio) {
+                    //console.log(`Playing Adhan for ${prayer}`);
                     audio.play().catch(console.error);
                 }
             }, delay * 1000);
         }
-    });
+    }
 }

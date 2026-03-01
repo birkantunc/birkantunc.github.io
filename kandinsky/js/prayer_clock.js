@@ -159,7 +159,7 @@ async function updateTime() {
         document.getElementById('current_hour').setAttribute('transform', `translate(378 373)`);
     }
     
-    // Minutes (padded)
+    // Minutes
     const min = now.getMinutes();
     document.querySelector('#current_minute tspan').textContent = min < 10 ? '0' + min : min;
 

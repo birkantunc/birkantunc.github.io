@@ -4,6 +4,20 @@ const CONTAINER_ID = 'svg-container';
 var timer0 = null;
 var timer1 = null;
 
+
+// // Click anywhere on the page once to satisfy the browser's interaction policy
+// document.body.addEventListener('click', () => {
+//     document.querySelectorAll('audio').forEach(audio => {
+//         // Play and immediately pause to unlock the audio context
+//         audio.play().then(() => {
+//             audio.pause();
+//             audio.currentTime = 0;
+//         }).catch(console.error);
+//     });
+//     console.log("Audio unlocked. setTimeout will now play successfully.");
+// }, { once: true });
+
+
 // load SVG Inline
 fetch(SVG_PATH)
     .then(response => response.text())
@@ -20,7 +34,7 @@ fetch(SVG_PATH)
             updateTime();
             updateWeather();
 
-            // every minute, update time and check if we need to fetch new prayer times (new day)
+            // every 30 seconds, update time and check if we need to fetch new prayer times (new day)
             if (timer0) { clearInterval(timer0); }
             timer0 = setInterval(async function(){
                 // check if we need to fetch new prayer times (new day)
@@ -31,7 +45,7 @@ fetch(SVG_PATH)
                     setAdhanTimers();
                 }
                 updateTime();
-            }, 60*1000);
+            }, 10*1000);
 
             // every hour, update weather
             if (timer1) { clearInterval(timer1); }
