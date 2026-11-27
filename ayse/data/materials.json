@@ -1,0 +1,32 @@
+[
+  {
+    "number": "01",
+    "name": "Handmade Archival Paper",
+    "description": "Natural-fiber paper, hand-dyed with natural pigments and burnished smooth to create a lasting foundation for traditional sizing and gilding."
+  },
+  {
+    "number": "02",
+    "name": "Natural Mineral Pigments",
+    "description": "Finely hand-ground mineral powders including lapis lazuli, malachite, cinnabar, and orpiment—prepared for deep, lightfast color."
+  },
+  {
+    "number": "03",
+    "name": "Shell Gold (Yellow, White & Green)",
+    "description": "Genuine gold leaf meticulously ground into a fine powder and bound with gum arabic into a luminous, brush-ready paint."
+  },
+  {
+    "number": "04",
+    "name": "Wheat Starch Sizing (Ahar)",
+    "description": "Cooked into a fine paste, strained through cotton cloth, and brushed evenly onto paper to seal the fibers before burnishing."
+  },
+  {
+    "number": "05",
+    "name": "Agate Burnishing Stones",
+    "description": "Smooth agate stone tools (mühre) used to polish sized paper and bring gilded gold surfaces to a quiet, mirror-like luster."
+  },
+  {
+    "number": "06",
+    "name": "Ultra-Fine Brushes & Compasses",
+    "description": "Natural-hair brushes (sizes 3/0 to 10/0) for microscopic tahrir outlining, paired with precision drafting compasses for classical geometric grids."
+  }
+]

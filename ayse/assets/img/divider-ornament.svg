@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 28" fill="none" role="presentation" aria-hidden="true">
+  <line x1="0" y1="14" x2="258" y2="14" stroke="#B08D57" stroke-width="0.9" stroke-opacity="0.65"/>
+  <line x1="342" y1="14" x2="600" y2="14" stroke="#B08D57" stroke-width="0.9" stroke-opacity="0.65"/>
+  <!-- Left & Right finial dots -->
+  <circle cx="264" cy="14" r="1.6" fill="#B08D57"/>
+  <circle cx="336" cy="14" r="1.6" fill="#B08D57"/>
+  <!-- Left & Right rumi leaf curls -->
+  <path d="M270 14 C276 8, 282 8, 287 14 C282 20, 276 20, 270 14 Z" stroke="#B08D57" stroke-width="1" fill="#FAF7F2"/>
+  <path d="M330 14 C324 8, 318 8, 313 14 C318 20, 324 20, 330 14 Z" stroke="#B08D57" stroke-width="1" fill="#FAF7F2"/>
+  <!-- Central Ottoman diamond cartouche -->
+  <path d="M300 3 L313 14 L300 25 L287 14 Z" stroke="#B08D57" stroke-width="1.1" fill="#FAF7F2"/>
+  <path d="M300 7 L308 14 L300 21 L292 14 Z" stroke="#B08D57" stroke-width="0.8" fill="none"/>
+  <circle cx="300" cy="14" r="2.2" fill="#B08D57"/>
+  <!-- Top & bottom finial tips -->
+  <circle cx="300" cy="1.5" r="1" fill="#B08D57" fill-opacity="0.75"/>
+  <circle cx="300" cy="26.5" r="1" fill="#B08D57" fill-opacity="0.75"/>
+</svg>
